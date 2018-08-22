@@ -11,7 +11,12 @@ export class BooksComponent implements OnInit {
   books: Book[];
 
   constructor(private service: BooksService) {
-    service.findBooks().subscribe(books => {
+    this.refresh();
+  }
+
+  refresh() {
+    this.service.findBooks().subscribe(books => {
+      console.log('Books', books);
       this.books = books;
     });
   }

@@ -1,5 +1,5 @@
 import { Book } from '../book';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BooksService } from '../books.service';
 
 @Component({
@@ -8,14 +8,18 @@ import { BooksService } from '../books.service';
   styleUrls: ['./add-books.component.css']
 })
 export class AddBooksComponent implements OnInit {
+  @Output()
+  after = new EventEmitter<Book>();
+
   book = new Book();
 
   constructor(private service: BooksService) {}
   ngOnInit(): void {}
 
   add() {
-    this.service.add(this.book).subscribe(book => {
+    this.service.add(this.book).subscribe((book: Book) => {
       console.log('Book created', book);
+      this.after.emit(book);
     });
     this.book = new Book();
   }

@@ -1,4 +1,4 @@
-<app-add-books></app-add-books>
+<app-add-books (after)="refresh()"></app-add-books>
 
 <div *ngFor="let book of books">
   {{book.name}}
