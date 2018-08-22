@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
@@ -18,6 +19,8 @@ func main() {
 	db.AutoMigrate(&Book{})
 
 	r := gin.Default()
+	r.Use(cors.Default())
+
 	r.GET("/books", func(c *gin.Context) {
 		var books []Book
 		db.Find(&books)
