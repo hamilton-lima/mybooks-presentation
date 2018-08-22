@@ -17,5 +17,13 @@ func main() {
 		c.JSON(200, books)
 	})
 
+	r.POST("/books", func(c *gin.Context) {
+		var book Book
+		c.BindJSON(&book)
+		books = append(books, book)
+
+		c.JSON(200, book)
+	})
+
 	r.Run()
 }
