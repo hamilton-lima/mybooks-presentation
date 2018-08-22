@@ -8,17 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BooksService {
-  books: Book[] = [
-    { name: 'Book 1' }, 
-    { name: 'Book 2' }, 
-    { name: 'Book 3' }];
-
   findBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.url + '/books');
   }
 
   add(book: Book) {
-    this.books.push(book);
+    return this.http.post(this.url + '/books', book);
   }
 
   url = 'http://localhost:8080';
