@@ -1,4 +1,4 @@
 <div class="form-group row">
-  <input type="text" name="book">
-  <button class="btn btn-primary">Add Book</button>
+  <input type="text" [(ngModel)]="book.name">
+  <button class="btn btn-primary" (click)="add()">Add Book</button>
 </div>

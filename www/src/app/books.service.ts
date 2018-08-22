@@ -14,5 +14,10 @@ export class BooksService {
   findBooks(): Book[] {
     return this.books;
   }
+  
+  add(book: Book) {
+    this.books.push(book);
+  }
+
   constructor() {}
 }
