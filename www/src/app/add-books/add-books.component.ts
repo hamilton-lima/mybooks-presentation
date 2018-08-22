@@ -8,14 +8,15 @@ import { BooksService } from '../books.service';
   styleUrls: ['./add-books.component.css']
 })
 export class AddBooksComponent implements OnInit {
-
   book = new Book();
 
   constructor(private service: BooksService) {}
   ngOnInit(): void {}
-  
+
   add() {
-    this.service.add(this.book);
+    this.service.add(this.book).subscribe(book => {
+      console.log('Book created', book);
+    });
     this.book = new Book();
   }
 }
