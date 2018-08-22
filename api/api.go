@@ -9,7 +9,7 @@ import (
 
 type Book struct {
 	gorm.Model
-	Name string
+	Name string `json:"name"`
 }
 
 func main() {
