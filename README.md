@@ -5,4 +5,4 @@ This is an example application using:
 - Golang
 - Docker 
 
-Please find the related presentation at: https://goo.gl/oLBUb8
+Please find the related presentation at: https://goo.gl/PyzxLx
